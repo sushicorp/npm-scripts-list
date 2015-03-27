@@ -1,7 +1,7 @@
 {
 "build": "npm run build:js && npm run build:css",
 "build:js": "browserify ${npm_package_config_src_js} > ${npm_package_config_dist_js}",
-"build:js": "browserify ${npm_package_config_src_js} | uglifyjs -mc > ${npm_package_config_dist_js}",
+"build:jsmin": "browserify ${npm_package_config_src_js} | uglifyjs -mc > ${npm_package_config_dist_js}",
 "clean:rimraf": "rimraf dist/*",
 "clean": "rm -rf dist/*",
 "css:comb": "csscomb ${npm_package_config_src_css}",
@@ -17,7 +17,7 @@
 "open": "opener http://localhost:9090",
 "start": "node server.js",
 "serve": "http-server -p 9090 dist/",
-"serve": "browser-sync start --server dist/ --files dist/**/*",
+"browsersync": "browser-sync start --server dist/ --files dist/**/*",
 "dev": "npm run serve & npm run watch",
 "test": "mocha test/*.js",
 "test:karma": "karma start --singleRun",
